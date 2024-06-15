@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -16,7 +16,20 @@ let package = Package(
         .target(
             name: "OggDecoder",
             dependencies: ["ogg", "vorbis"],
-            path: "Sources/OggDecoderObjC"),
+            path: "Sources/OggDecoderObjC",
+            cSettings: [
+                .unsafeFlags(["-w"])
+            ],
+            cxxSettings: [
+                .unsafeFlags(["-w"])
+            ],
+            swiftSettings: [
+                .unsafeFlags(["-suppress-warnings"])
+            ],
+            linkerSettings: [
+                .unsafeFlags(["-w"])
+            ]
+        ),
         .testTarget(
             name: "OggDecoderTests",
             dependencies: ["OggDecoder"],
@@ -27,5 +40,6 @@ let package = Package(
                       path: "ogg.xcframework"),
         .binaryTarget(name: "vorbis",
                       path: "vorbis.xcframework"),
+
     ]
 )
