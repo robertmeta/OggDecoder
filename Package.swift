@@ -18,16 +18,16 @@ let package = Package(
             dependencies: ["ogg", "vorbis"],
             path: "Sources/OggDecoderObjC",
             cSettings: [
-                .unsafeFlags(["-w"])
+                .unsafeFlags([""])
             ],
             cxxSettings: [
-              .unsafeFlags(["-w", "-Wno-c++11-extensions"], .when(platforms: [.macOS]))
+              .unsafeFlags(["", "-Wno-c++11-extensions"], .when(platforms: [.macOS]))
             ],
             swiftSettings: [
                 .unsafeFlags(["-suppress-warnings"])
             ],
             linkerSettings: [
-                .unsafeFlags(["-w"])
+                .unsafeFlags([""])
             ]
         ),
         .testTarget(
