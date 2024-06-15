@@ -21,7 +21,7 @@ let package = Package(
                 .unsafeFlags(["-w"])
             ],
             cxxSettings: [
-                .unsafeFlags(["-w"])
+              .unsafeFlags(["-w", "-Wno-c++11-extensions"], .when(platforms: [.macOS]))
             ],
             swiftSettings: [
                 .unsafeFlags(["-suppress-warnings"])
