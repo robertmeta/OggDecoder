@@ -18,7 +18,7 @@ let package = Package(
             dependencies: ["ogg", "vorbis"],
             path: "Sources/OggDecoderObjC",
             cSettings: [
-                .unsafeFlags([""])
+                .unsafeFlags(["-w"])
             ],
             cxxSettings: [
               .unsafeFlags(["", "-Wno-c++11-extensions"], .when(platforms: [.macOS]))
